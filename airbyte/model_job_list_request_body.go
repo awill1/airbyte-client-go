@@ -91,7 +91,7 @@ func (o *JobListRequestBody) SetConfigId(v string) {
 
 // GetPagination returns the Pagination field value if set, zero value otherwise.
 func (o *JobListRequestBody) GetPagination() Pagination {
-	if o == nil || o.Pagination == nil {
+	if o == nil || &o.Pagination == nil {
 		var ret Pagination
 		return ret
 	}
@@ -101,15 +101,15 @@ func (o *JobListRequestBody) GetPagination() Pagination {
 // GetPaginationOk returns a tuple with the Pagination field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *JobListRequestBody) GetPaginationOk() (Pagination, bool) {
-	if o == nil || o.Pagination == nil {
-		return nil, false
+	if o == nil || &o.Pagination == nil {
+		return Pagination{}, false
 	}
 	return o.Pagination, true
 }
 
 // HasPagination returns a boolean if a field has been set.
 func (o *JobListRequestBody) HasPagination() bool {
-	if o != nil && o.Pagination != nil {
+	if o != nil && &o.Pagination != nil {
 		return true
 	}
 
@@ -129,7 +129,7 @@ func (o JobListRequestBody) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["configId"] = o.ConfigId
 	}
-	if o.Pagination != nil {
+	if &o.Pagination != nil {
 		toSerialize["pagination"] = o.Pagination
 	}
 	return json.Marshal(toSerialize)

@@ -325,7 +325,7 @@ func (o *ConnectionRead) GetSchedule() ConnectionSchedule {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionRead) GetScheduleOk() (*ConnectionSchedule, bool) {
-	if o == nil || o.Schedule == nil {
+	if o == nil || &o.Schedule == nil {
 		return nil, false
 	}
 	return &o.Schedule, true
@@ -333,7 +333,7 @@ func (o *ConnectionRead) GetScheduleOk() (*ConnectionSchedule, bool) {
 
 // HasSchedule returns a boolean if a field has been set.
 func (o *ConnectionRead) HasSchedule() bool {
-	if o != nil && o.Schedule != nil {
+	if o != nil && &o.Schedule != nil {
 		return true
 	}
 
@@ -430,7 +430,7 @@ func (o ConnectionRead) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["syncCatalog"] = o.SyncCatalog
 	}
-	if o.Schedule != nil {
+	if &o.Schedule != nil {
 		toSerialize["schedule"] = o.Schedule
 	}
 	if true {
